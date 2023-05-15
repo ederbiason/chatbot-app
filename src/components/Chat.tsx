@@ -1,6 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import ChatHeader from "@/components/ChatHeader"
 import ChatInput from "@/components/ChatInput"
+import ChatMessages from "@/components/ChatMessages"
 
 const Chat = () => {
   return (
@@ -18,7 +19,7 @@ const Chat = () => {
 
                     <AccordionContent>
                         <div className="flex flex-col h-80">
-                            messages
+                            <ChatMessages />
 
                             <ChatInput 
                                 className="px-4 "
