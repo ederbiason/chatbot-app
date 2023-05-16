@@ -8,6 +8,7 @@ import { nanoid } from 'nanoid'
 import { Message } from '@/lib/validators/message'
 import { MessagesContext } from '@/context/messages'
 import { CornerDownLeft, Loader2 } from 'lucide-react'
+import { toast } from 'react-hot-toast'
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> { }
 
@@ -26,6 +27,10 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
                 },
                 body: JSON.stringify({ messages: [message] })
             })
+
+            if(!response.ok) {
+                throw new Error()
+            }
 
             return response.body
         },
@@ -69,6 +74,12 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
 
 
             // Resolver erro do console. a mesangem esta sendo enviada mas nao esta recebendo nenhuma response, pode ser isso que esteja causando o erro do console
+        },
+        
+        onError(_, message) {
+            toast.error('Something went wrong, Please try again.')
+            removeMessage(message.id)
+            textareaRef.current?.focus()
         }
     })
 
