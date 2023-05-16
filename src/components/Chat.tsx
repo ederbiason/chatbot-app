@@ -19,7 +19,7 @@ const Chat = () => {
 
                     <AccordionContent>
                         <div className="flex flex-col h-80">
-                            <ChatMessages />
+                            <ChatMessages className="px-2 py-2 flex-1" />
 
                             <ChatInput 
                                 className="px-4 "
