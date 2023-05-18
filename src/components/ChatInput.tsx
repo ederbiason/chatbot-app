@@ -71,9 +71,6 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
             setTimeout(() => {
                 textareaRef.current?.focus()
             }, 10)
-
-
-            // Resolver erro do console. a mesangem esta sendo enviada mas nao esta recebendo nenhuma response, pode ser isso que esteja causando o erro do console
         },
         
         onError(_, message) {
